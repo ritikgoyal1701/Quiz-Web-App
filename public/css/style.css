@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+body{
+    margin: 0;
+    font-size: 16px;
+    background-color:skyblue;
+    background-image: url(https://previews.123rf.com/images/parksang118/parksang1182003/parksang118200300104/142257628-question-mark-on-memo-paper-on-green-background-solution-concept.jpg);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: none;
+} 
+.custom-box{
+    max-width: 800px;
+    max-height: 800px;
+    background-color:rgb(255, 255, 255);
+    margin: 120px auto;
+    padding: 60px;
+    border-radius: 10px;
+    
+}  
+.btn{
+    padding: 15px 20px;
+    background-color: #009688;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: darkseagreen;
+    transform: scale(1.25);
+}
+.inline {
+    display: inline-block; 
+}

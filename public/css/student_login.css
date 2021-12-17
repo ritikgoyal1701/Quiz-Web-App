@@ -1,0 +1,67 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url(https://lsuonline-static.s3.amazonaws.com/media/images/2020/05/08/news-student-development-theory.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px 0px;
+}
+.box{
+    width: 300px;
+    padding: 30px;
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+}
+.box h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+p
+{
+    color: aliceblue;
+}
+.box input[type="text"],.box input[type="password"],.box input[type="email"],.box input[type="tel"]
+{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid #0367fd;
+    padding: 14px 10px;
+    width: 220px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+}
+.box input[type="text"]:focus,.box input[type="password"]:focus,.box input[type="email"]:focus,.box input:focus[type="tel"]
+{
+
+    width: 270px;
+    border-color: #ffc400ec;
+
+}
+.box button{
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 3px solid #0367fd;
+    padding: 14px 35px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+}
+.box button:hover{
+    background: #ffc400ec;
+}

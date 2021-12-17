@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="quiz-box custom-box">
+    <div class="question-number">
+        <%= Ques_no %>) <%= Ques %>        
+    </div>
+    <br>
+    <div class="option-container">
+        <form action="/quiz" method="post">
+            <%
+            if(Attempt===1) 
+            { %>
+                <input type="radio" name="option" value=1 checked>
+                <label class="Option"> <%= Options[0] %> </label>
+            <% }
+            else
+            { %>
+                <input type="radio" name="option" value=1>
+                <label class="Option"> <%= Options[0] %> </label>
+            <% } %>
+            <br>
+            <br>
+            <% if(Attempt===2) 
+            { %>
+                <input type="radio" name="option" value=2 checked>
+                <label class="Option"> <%= Options[1] %> </label>
+            <% }
+            else
+            { %>
+                <input type="radio" name="option" value=2 >
+                <label class="Option"> <%= Options[1] %> </label>
+            <% } %>
+            <br>
+            <br>
+            <% if(Attempt===3) 
+            { %>
+                <input type="radio" name="option" value=3 checked>
+                <label class="Option"> <%= Options[2] %> </label>
+            <% }
+            else
+            { %>
+                <input type="radio" name="option" value=3>
+                <label class="Option"> <%= Options[2] %> </label>
+            <% } %>
+            <br>
+            <br>
+            <% if(Attempt===4) 
+            { %>
+                <input type="radio" name="option" value=4 checked>
+                <label class="Option"> <%= Options[3] %> </label>
+            <% }
+            else
+            { %>
+                <input type="radio" name="option" value=4>
+                <label class="Option"> <%= Options[3] %> </label>
+            <% } %>
+            <br>
+            <br>
+            <br>
+            <div class="inline">    
+                <% if(Ques_no>1){ %>
+                    <button type="submit" class="btn" name=action value="Previous">Previous</button>
+                <% }
+                else{ %>
+                    <button type="submit" class="btn" name=action value="Previous" disabled>Previous</button>
+                <% } 
+                if(Ques_no<Total_ques){ %>
+                    <button type="submit" class="btn" name=action value="Next">Next</button>
+                <% }
+                else{ %>
+                    <button type="submit" class="btn" name=action value="Next" disabled>Next</button>
+                <% } %>
+                <button type="submit" class="btn" name=action value="Submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

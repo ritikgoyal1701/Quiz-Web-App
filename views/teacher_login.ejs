@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" and dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Interactive login Form </title>
+        <link rel="stylesheet" href="/css/student_login.css">
+        <script src="login2.js"></script>
+    </head>
+    <body>
+        <form class="box"action="/teacher" method="POST">
+            <h1>
+                Teacher login
+            </h1>
+            <% if(credintals==="login"){ %>
+                <p>Invalid Credintals</p>
+            <% } %>
+            <input type="text" name="username" placeholder="Enter username" id="username" autocomplete="off" required>
+            <input type="password" name="password" placeholder="Enter password" id="password" required>
+            <button type="submit">Login</button>        </form>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+        }        
+        .sidebar a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+        color: #f1f1f1;
+        }
+        
+        .sidebar .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+        }
+        
+        .openbtn {
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #111;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        }
+        
+        .openbtn:hover {
+        background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div id="mySidebar" class="sidebar" >
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="/student_profile">Profile</a>
+        <a href="/available_quiz">Quiz</a>
+        <a href="/contact_admin">Contact</a>
+        <a href="/logout">Logout</a>
+      </div>
+      <div id="main">
+        <button class="openbtn" onclick="openNav()" style="display:inline">☰</button>
+      </div>
+      <script>
+        function openNav() {
+          document.getElementById("mySidebar").style.width = "250px";
+          document.getElementById("main").style.marginLeft = "250px";
+        }
+  
+        function closeNav() {
+          document.getElementById("mySidebar").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+        }
+      </script>
+    <div class="quiz-box custom-box">
+        <div class="question-number">
+            <%= Ques_no %>) <%= Ques %>        
+        </div>
+        <br>    
+        <div class="option-container">
+            <form action="/quiz_display" method="post">
+                <input type="radio" name="option" value=1>
+                <label class="Option"> <%= Options[0] %> </label>
+                <br>
+                <br>
+                <input type="radio" name="option" value=2>
+                <label class="Option"> <%= Options[1] %> </label>
+                <br>
+                <br>
+                <input type="radio" name="option" value=3>
+                <label class="Option"> <%= Options[2] %> </label>
+                <br>
+                <br>
+                <input type="radio" name="option" value=4>
+                <label class="Option"> <%= Options[3] %> </label>
+                <br>
+                <br>
+                <div class="inline">    
+                    <% if(Ques_no>1){ %>
+                        <button type="submit" class="btn" name=action value="Previous">Previous</button>
+                    <% }
+                    else{ %>
+                        <button type="submit" class="btn" name=action value="Previous" disabled> Previous<button>
+                    <% } 
+                    if(Ques_no<Total_ques){ %>
+                        <button type="submit" class="btn" name=action value="Next">Next</button>
+                    <% }
+                    else{ %>
+                        <button type="submit" class="btn" name=action value="Next" disabled>Next</button>
+                    <% } %>
+                </div>
+                <br>
+                <br>
+                <% if(Attempt===0){%>
+                    <p style="color: red;">Not Attempted</p>
+                <% }
+                else if(Attempt!=Answer){ %>
+                    <p style="color: red;">Incorrect attempt <br> Attempted Answer &nbsp <%=Attempt%></p>
+                <%}
+                else{ %>
+                    <p style="color: green;">Correct Attempt</p>
+                <%}%>
+                <p>Answer: &nbsp <%=Answer%></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

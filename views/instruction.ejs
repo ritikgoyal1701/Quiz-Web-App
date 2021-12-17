@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+    <style>
+         body, html {
+          height: 100%;
+          margin: 0;
+        }
+        li{
+          margin-top: 10px;
+        }
+        .bg {
+         
+         background-image: url("https://th.bing.com/th/id/OIP.9LfMgtNAWRKjHHxPHYT_AAHaFP?pid=ImgDet&rs=1");
+          /* Full height */
+          height: 100%; 
+        
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          opacity: 1.00;
+        }
+        .head{
+    
+          border-radius: 50%;
+          color: black;
+          font-size:x-large;
+          padding: 50px 50px; 
+          text-align: center;
+          font-weight: bold;
+          /* padding:20px 20px; */
+          top: 10%;
+          position: absolute;
+          left: 30%;
+          transform: translate(-50%, -50%);
+          text-align: left;
+          margin-right: 100px;
+          margin-top: 250px; 
+        }
+        .btn{
+          padding: 15px 20px;
+          background-color: #009688;
+          color: #ffffff;
+          border: none;
+          border-radius: 5px;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 16px;
+          cursor: pointer;
+
+      }
+    </style>
+</head>
+<body>
+    <div class="bg"></div>
+      <div class="head">
+        <br><br><br><br>
+            Instructions:
+            <div>
+              <ol>
+                <li>Do not close the browser anytime during exam.</li>
+                <li>All questions are compulsory.</li>
+                <li>Candidate should check his/her name being displayed on the screen.</li>
+                <li>
+                  Marking Scheme is as follows:
+                  <ol>
+                    <li>+3 marks for each correct answer.</li>
+                    <li>There is no negative marking.</li>
+                  </ol>
+                </li>
+                <li>On clicking the next button given at the bottom of the instruction page, candidate will be directed to the question display screen.</li>
+                <li>Candidate should note down the Session ID that is displayed on the question screen after clicking on next button.</li>
+                <li>Using of mobile phone and Electronic gadgets are strictly prohibited.</li>
+              </ol>
+              <form action="/instruction" method="post">
+                <input type="checkbox" name="Option" value="done">
+                <label class="Option1"> I accepted and understand all the instruction given above.</label>
+                <p style="color: red;"><%=disclaimer%></p>
+                <button type="submit" class="btn">Next</button>
+              </form>
+            </div>
+      </div> 
+</body>
+</html>

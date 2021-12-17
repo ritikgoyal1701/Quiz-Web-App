@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+  body, html {
+    height: 100%;
+    margin: 0;
+  }
+  .bg1 {
+  /* The image used */
+  background-color: white;
+
+  /* Full height */
+  height: 20%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+        table, th, td {
+          border:1px solid black;
+          border-style: hidden;
+          font-size: x-large;
+        }
+  
+  .bg{
+  
+    /* Full height */
+    height: 100%; 
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    text-align: center;
+
+  }
+  .center{
+text-align: center;
+align-self:center;
+padding-top: 250px;
+position: absolute;
+top: 30%;
+left: 50%;
+transform: translate(-50%, -50%);
+
+}
+.button{
+background-color:black;
+border-radius: 100%;
+margin:150px 150px;
+padding: 50px 50px;
+font-size:xx-large;
+font-weight: bold;
+color:white;
+}
+.head{
+border-radius: 50%;
+color: black;
+font-size:500%;
+padding: 50px 50px; 
+text-align: center;
+font-weight: bold;
+padding:20px 20px;
+top: 10%;
+position: absolute;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.image{
+opacity: 0.4;
+height: 100%;
+width:100%;
+
+}
+.icon{
+  height: 50px;
+}
+.Username{
+  color: white;
+  font-size:x-large;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+}
+ul#horizontal li{
+  display:inline-flexbox;
+}
+  </style>
+<body>
+    <div class="bg1">
+        <table style="width:100%" >
+            <tr>
+              <th style="width: 50%;"></th>
+              <th style="width: 50%;"></th>
+              <th></th>
+            </tr>
+            <tr>
+              <td><img src="https://th.bing.com/th/id/OIP.rVggrpUvs-YAUExsD7c-EAHaHa?w=215&h=216&c=7&r=0&o=5&dpr=1.25&pid=1.7" width="150" height="150"></td>
+              <td></td>
+              <td><%=Username%><br><%=Name%><br><%=Email%><br><%=Roll%><br><%=Phone%><br><%=College%></td>
+            </tr>
+            <!-- <tr>
+              <td>Centro comercial Moctezuma</td>
+              <td>Francisco Chang</td>
+              <td>Mexico</td>
+            </tr> -->
+          </table>
+        </div>
+    <!-- <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:black">
+      <!-- <img class="icon" src="https://th.bing.com/th/id/OIP.rVggrpUvs-YAUExsD7c-EAHaHa?w=215&h=216&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt="">  -->
+        
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> -->
+          <!-- <span class="navbar-toggler-icon"></span>
+        </button> -->
+      
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto" id="horizontal">
+            <li class="nav-item active">
+              <img class="icon" src="https://th.bing.com/th/id/OIP.rVggrpUvs-YAUExsD7c-EAHaHa?w=215&h=216&c=7&r=0&o=5&dpr=1.25&pid=1.7" alt=""> 
+            </li>
+            <li class="nav-item active">
+        
+              <a class="nav-link  Username"  href="#">Username<span class="sr-only"></span></a>
+            </li>
+            </ul>
+            </div>
+            </nav> --> -->
+            <div class="bg">
+              <img class="image" src="https://png.pngtree.com/thumb_back/fw800/back_our/20190621/ourmid/pngtree-winter-holiday-results-improve-class-hand-drawn-cartoon-background-image_186781.jpg" alt="">
+              
+              <div class="head">
+                Quiz Mania
+              </div>
+            <div class ="center">
+                <h1><%= result %></h1>
+                <br><br><br><br><br><br><br>
+                <a class="button" href="/">Back to Home Page</a>
+            </div>
+            </div>
+    
+</body>
+</html>

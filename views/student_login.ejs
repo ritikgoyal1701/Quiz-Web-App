@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" and dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Student Login</title>
+        <link rel="stylesheet" href="css/student_login.css">
+    </head>
+    <body>
+        <form class="box" action="/student" method="POST">
+            <h1>
+                Student login
+            </h1>
+            <% if(credintals==="login"){ %>
+                <p>Invalid Credintals</p>
+            <% } %>
+            <input type="text" name="username" placeholder="Enter username" id="username" autocomplete="off" required>
+            <input type="password" name="password" placeholder="Enter password" id="password" required>
+            <button type="submit">Login</button>
+            <a href="/student_register" style="color: powderblue;">Create an account</a>
+        </form>
+    </body>
+</html>

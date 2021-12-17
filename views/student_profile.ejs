@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body, html {
+      height: 100%;
+    }
+
+    .bg {
+      /* The image used */
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHSAWUPuZX7IbqcWHUBRKxcMK7bLicDob55g&usqp=CAU"); 
+
+      /* Full height */
+      height: 100%;
+
+      /* Center and scale the image nicely */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .column {
+      float: left;
+      width: 33.33%;
+      padding: 5px;
+      font-size: x-large;
+      left: 500px;
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;  
+    }
+    body {
+      font-family: "Lato", sans-serif;
+    }
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }        
+    .sidebar a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+    
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+    
+    .sidebar .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+    
+    .openbtn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+    }
+    
+    .openbtn:hover {
+      background-color: #444;
+    }
+    
+    #main {
+      transition: margin-left .5s;
+      padding: 16px;
+    }
+    
+    /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+    @media screen and (max-height: 450px) {
+      .sidebar {padding-top: 15px;}
+      .sidebar a {font-size: 18px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg">
+    <div id="mySidebar" class="sidebar" >
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+      <a href="/student_profile">Profile</a>
+      <a href="/available_quiz">Quiz</a>
+      <a href="/contact_admin">Contact</a>
+      <a href="/logout">Logout</a>
+    </div>
+
+    <div id="main">
+      <button class="openbtn" onclick="openNav()" style="display:inline">☰</button>
+      <h1 style="display:table; text-align: center; margin: 0 auto;">Profile</h1>
+    </div>
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+    </script>
+
+    <div class="row">
+      <div class="column">
+          <img src="https://th.bing.com/th/id/OIP.rVggrpUvs-YAUExsD7c-EAHaHa?w=215&h=216&c=7&r=0&o=5&dpr=1.25&pid=1.7">
+      </div>
+      <div class="column">
+        <p>UserName &nbsp <%=Username%></p>
+        <p>Name   &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp   <%=Name%></p>
+        <p>Roll No &nbsp&nbsp&nbsp&nbsp&nbsp  <%=Roll_No%></p>
+        <p>College &nbsp&nbsp&nbsp&nbsp&nbsp  <%=College%></p>
+        <p>Email ID &nbsp&nbsp&nbsp&nbsp <%=Email_id%></p>
+        <p>Phone No &nbsp&nbsp <%=Phone_No%></p>
+      </div>
+    </div>
+    <div class="row2">
+        <h2>Quiz Attempted</h2>
+      <table>
+        <tr>
+          <th>S.No</th>
+          <th>Quiz Name</th>
+          <th>Marks Obtained</th>
+          <th>Maximum Marks</th>
+        </tr>
+        <% if(Quiz_Attempted.length>0)
+        {
+          for(var i=1; i<=Quiz_Attempted.length; i++)
+          {
+            %>
+            <tr>
+              <td><%= i %></td>
+              <td>
+                <form action="/student_profile" method="post">
+                  <button type="submit" name="Quiz_No" value="<%=i%>">
+                    <%= Quiz_Attempted[i-1].Quiz_Name %>
+                  </button>
+                </form>
+              </td>
+              <td><%= Quiz_Attempted[i-1].Mark_Obtained %></td>
+              <td><%= Quiz_Attempted[i-1].Max_Marks %></td>
+            </tr>
+          <%}
+        }
+        else{%>
+          <tr>
+            <td></td>
+            <td>
+              <p>Not attempted any quiz</p>
+            </td>
+            <td></td>
+            <td></td>
+          </tr>
+        <%}%>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

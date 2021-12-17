@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" and dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Student Register</title>
+        <link rel="stylesheet" href="css/student_login.css">s
+        <link rel="stylesheet" href="css/register.css">
+    </head>
+    <body>
+        <form class="box" action="/student_register" method="POST" style="top: 70%;">
+            <h1>
+                Student Register
+            </h1>
+            <% if(credintals!=""){ %>
+                <p><%=credintals%></p>
+            <% } %>
+            <input type="text" name="username" placeholder="Enter username" value="<%=Username%>" autocomplete="off" required>
+            <input type="text" name="name" placeholder="Enter name" value="<%=Name%>" required>
+            <input type="text" name="roll" placeholder="Enter roll no" value="<%=Roll_No%>" required>
+            <input type="text" name="college" placeholder="Enter college" value="<%=College%>" required>
+            <input type="email" name="email" placeholder="Enter Email" value="<%=Email_Id%>" required>
+            <input type="tel" name="phone" placeholder="Enter phone no" value="<%=Phone_No%>" pattern="[0-9]{10}" title="Enter vald 10 digit mobile number" required>
+            <input type="password" id="psw" name="password" placeholder="Enter password" value="<%=Password%>" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+            <div id="message">
+                <h3>Password must contain the following:</h3>
+                <p id="letter" class="invalid"><b>Lowercase</b> letter</p>
+                <p id="capital" class="invalid"><b>Capital (uppercase)</b> letter</p>
+                <p id="number" class="invalid"><b>Number</b></p>
+                <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+            </div>
+            <button type="submit">Register</button>
+            <a href="/student" style="color: powderblue;">Already have an account, Login</a>
+        </form>
+        <script>
+            var myInput = document.getElementById("psw");
+            var letter = document.getElementById("letter");
+            var capital = document.getElementById("capital");
+            var number = document.getElementById("number");
+            var length = document.getElementById("length");
+            // When the user clicks on the password field, show the message box
+            myInput.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+            }
+            // When the user clicks outside of the password field, hide the message box
+            myInput.onblur = function() {
+            document.getElementById("message").style.display = "none";
+            }
+            // When the user starts to type something inside the password field
+            myInput.onkeyup = function() {
+                // Validate lowercase letters
+                let p=0;
+                var lowerCaseLetters = /[a-z]/g;
+                if(myInput.value.match(lowerCaseLetters)) {
+                    p=p+1;
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                } 
+                else {
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+        
+                // Validate capital letters
+                var upperCaseLetters = /[A-Z]/g;
+                if(myInput.value.match(upperCaseLetters)) {
+                    p=p+1;
+                    capital.classList.remove("invalid");
+                    capital.classList.add("valid");
+                } 
+                else {
+                    capital.classList.remove("valid");
+                    capital.classList.add("invalid");
+                }
+        
+                // Validate numbers
+                var numbers = /[0-9]/g;
+                if(myInput.value.match(numbers)) {
+                    p=p+1;
+                    number.classList.remove("invalid");
+                    number.classList.add("valid");
+                } 
+                else {
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                }
+        
+                // Validate length
+                if(myInput.value.length >= 8) {
+                    p=p+1;
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                } 
+                else {
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                }
+                if(p==4){
+                    document.getElementById("message").style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
